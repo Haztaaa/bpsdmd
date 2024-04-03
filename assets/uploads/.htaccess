@@ -1,0 +1,7 @@
+# Disable directory browsing
+Options -Indexes
+
+# Allow access to files
+<Files "*">
+    Require all granted
+</Files>
