@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 04:43 AM
+-- Generation Time: Jul 20, 2024 at 10:44 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -92,6 +92,19 @@ INSERT INTO `jenis_pelatihan` (`id_jenis`, `id_bidang`, `pelatihan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -108,7 +121,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`) VALUES
-(1, 'Admin', 'admin', '$2y$10$WiiXz03OxfswKBax2nBiceTuPnlbuYkP8OZhCewPgZZsgXgSP13CO', '1');
+(1, 'Admin', 'admin', '$2y$10$WiiXz03OxfswKBax2nBiceTuPnlbuYkP8OZhCewPgZZsgXgSP13CO', '1'),
+(2, 'Bidang PKTI', 'pkti', '$2y$10$WiiXz03OxfswKBax2nBiceTuPnlbuYkP8OZhCewPgZZsgXgSP13CO', '3'),
+(3, 'User Manajerial', 'manajerial', '$2y$10$8WFHnd7kuyB75Q.27silf.rl3aTf2e/v2l7cdfjQssk9DbYGAzxoW', '2'),
+(4, 'User PKTUF', 'pktuf', '$2y$10$hWT1NRveFBbu69l9o9jbRe.I6xT5WZBENF7hDpMpu93uv8gPxIQi.', '4'),
+(5, 'User CS', 'customer', '$2y$10$WiiXz03OxfswKBax2nBiceTuPnlbuYkP8OZhCewPgZZsgXgSP13CO', '5');
 
 --
 -- Indexes for dumped tables
@@ -131,6 +148,12 @@ ALTER TABLE `data`
 --
 ALTER TABLE `jenis_pelatihan`
   ADD PRIMARY KEY (`id_jenis`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -158,13 +181,19 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `jenis_pelatihan`
 --
 ALTER TABLE `jenis_pelatihan`
-  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

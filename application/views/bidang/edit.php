@@ -5,7 +5,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Tambah</strong> Data Bidang
+                    <strong>Ubah</strong> Data Bidang
                 </div>
                 <div class="card-body card-block">
                     <form action="<?= base_url('bidang/edit/') . $val['id_bidang']  ?>" method="post" class="form-horizontal">

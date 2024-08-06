@@ -35,29 +35,39 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <img src="<?= base_url('assets/img/prov.png') ?>" alt="" width="75px">
-                <span style="font-weight: bold; color:white;" class="ml-2">BPSDMD SULUT</span>
+                <span style="font-weight: bold; color:white; margin-top:-25px; margin-left:20px; font-size:25px;">BPSDMD</span>
+
+                <span style="font-weight: bold; color:white;margin-top:25px; margin-left:-108px; font-size:25px;">SULUT</span>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="<?= base_url('dashboard') ?>">
-                                <i class="fas fa-desktop"></i>Beranda</a>
+                            <a href="<?= base_url('dashboard') ?>" style="color: #741919;">
+                                <i class="fas fa-desktop" style="color: #741919;"></i>Beranda</a>
                         </li>
+                        <?php if ($this->session->userdata('level') == 1) : ?>
+                            <li>
+                                <a href="<?= base_url('bidang') ?>" style="color: #741919;">
+                                    <i class="fas fa-user" style="color: #741919;"></i>Bidang</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($this->session->userdata('level') != 5) : ?>
+                            <li>
+                                <a href="<?= base_url('jenis') ?>" style="color: #741919;">
+                                    <i class="fas fa-table" style="color: #741919;"></i>Jenis Pelatihan</a>
+                            </li>
+                        <?php endif; ?>
                         <li>
-                            <a href="<?= base_url('bidang') ?>">
-                                <i class="fas fa-user"></i>Bidang</a>
+                            <a href="<?= base_url('sertifikatmain') ?>" style="color: #741919;">
+                                <i class="fas fa-file" style="color: #741919;"></i>Sertifikat</a>
                         </li>
-                        <li>
-                            <a href="<?= base_url('jenis') ?>">
-                                <i class="fas fa-table"></i>Jenis Pelatihan</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('sertifikat') ?>">
-                                <i class="fas fa-file"></i>Semua Sertifikat</a>
-                        </li>
-
-
+                        <?php if ($this->session->userdata('level') == 1) : ?>
+                            <li>
+                                <a href="<?= base_url('users') ?>" style="color: #741919;">
+                                    <i class="fas fa-users" style="color: #741919;"></i>Manajemen Pengguna</a>
+                            </li>
+                        <?php endif; ?>
 
                     </ul>
                 </nav>
@@ -66,17 +76,6 @@
         <!-- END MENU SIDEBAR-->
         <title>Text Movement</title>
         <style>
-            @keyframes moveLeftToRight {
-                0% {
-                    transform: translateX(0%);
-                }
-
-                100% {
-                    transform: translateX(80%);
-                }
-            }
-
-
             .moving-text {
                 position: relative;
                 animation: moveLeftToRight 10s linear infinite;
@@ -91,70 +90,73 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <span style="color: white; font-size:25px;" class="moving-text">APLIKA<b style="color: yellow; font-size:28px;">SI</b> <b style="color: yellow; font-size:28px;">CEK</b> SERTIFIK<b style="color: yellow; font-size:28px;">AT</b> PELATIH<b style="color: yellow; font-size:28px;">AN</b>
+                                <marquee direction="right" style="color: white; font-size:25px; width:1000px;" class="moving-text">APLIKA<b style="color: yellow; font-size:28px;">SI</b> <b style="color: yellow; font-size:28px;">CEK</b> SERTIFIK<b style="color: yellow; font-size:28px;">AT</b> PELATIH<b style="color: yellow; font-size:28px;">AN</b>
                                     <b style="color: yellow; margin-left:10px; font-size:28px;"> (SI CEKATAN)</b>
-                                </span>
+                                </marquee>
 
                             </form>
+
                             <div class="header-button">
-                                <div class="noti-wrap">
-                                    <div class="noti__item js-item-menu">
+                                <?php if ($this->session->userdata('level') == 1) : ?>
+                                    <div class="noti-wrap">
+                                        <div class="noti__item js-item-menu">
 
-                                        <span class="quantity"></span>
-                                        <div class="">
+                                            <span class="quantity"></span>
+                                            <div class="">
 
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-
-                                        <span class="quantity"></span>
-                                        <div class="">
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-
-                                        <span class="quantity"></span>
-                                        <div class="">
-                                        </div>
-                                    </div>
-
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity" id="qty">0</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>Anda Memiliki Total <span id="notification-count">0</span> Notifikasi</p>
-                                            </div>
-                                            <div id="notification-list">
-                                                <!-- Notifikasi akan ditampilkan di sini -->
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="<?= base_url('notifikasi') ?>">Lihat Semua Notifikasi</a>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="noti__item js-item-menu">
 
-                                </div>
+                                            <span class="quantity"></span>
+                                            <div class="">
+                                            </div>
+                                        </div>
+                                        <div class="noti__item js-item-menu">
+
+                                            <span class="quantity"></span>
+                                            <div class="">
+                                            </div>
+                                        </div>
+
+                                        <div class="noti__item js-item-menu">
+                                            <i class="zmdi zmdi-notifications"></i>
+                                            <span class="quantity" id="qty">0</span>
+                                            <div class="notifi-dropdown js-dropdown">
+                                                <div class="notifi__title">
+                                                    <p>Anda Memiliki Total <span id="notification-count">0</span> Notifikasi</p>
+                                                </div>
+                                                <div id="notification-list">
+                                                    <!-- Notifikasi akan ditampilkan di sini -->
+                                                </div>
+                                                <div class="notifi__footer">
+                                                    <a href="<?= base_url('notifikasi') ?>">Lihat Semua Notifikasi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                <?php endif; ?>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="<?= base_url('assets/') ?>images/icon/profile.png" alt="John Doe" />
+                                            <img src="<?= base_url('assets/') ?>img/profile.png" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Admin</a>
+                                            <a class="js-acc-btn" href="#"><?= $user['nama'] ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="<?= base_url('assets/') ?>images/icon/profile.png" alt="John Doe" />
+                                                        <img src="<?= base_url('assets/') ?>img/profile.png" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Admin</a>
+                                                        <a href="#"><?= $user['nama'] ?></a>
                                                     </h5>
-                                                    <span class="email">aa</span>
+                                                    <span class="email"><?= $user['username'] ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -176,6 +178,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

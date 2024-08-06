@@ -8,25 +8,32 @@ class Bidang extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Model_Bidang');
+        if ($this->session->userdata('level') != 1) {
+            redirect('dashboard');
+        }
     }
 
     public function index()
     {
+        $data['user'] = $this->db->get_where('user', ['id_user' =>
+        $this->session->userdata('id_user')])->row_array();
         $data['bidang'] = $this->Model_Bidang->get()->result_array();
 
         $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('bidang/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer', $data);
     }
     function add()
     {
+        $data['user'] = $this->db->get_where('user', ['id_user' =>
+        $this->session->userdata('id_user')])->row_array();
         $this->form_validation->set_rules('nama_bidang', 'Nama Bidang', 'required');
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header');
-            $this->load->view('templates/sidebar');
-            $this->load->view('bidang/add');
-            $this->load->view('templates/footer');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('bidang/add', $data);
+            $this->load->view('templates/footer', $data);
         } else {
             $data = [
                 'nama_bidang' => $this->input->post('nama_bidang')
@@ -45,14 +52,15 @@ class Bidang extends CI_Controller
 
     function edit($id)
     {
-
+        $data['user'] = $this->db->get_where('user', ['id_user' =>
+        $this->session->userdata('id_user')])->row_array();
         $this->form_validation->set_rules('nama_bidang', 'Nama Bidang', 'required');
         if ($this->form_validation->run() == false) {
             $data['val'] = $this->Model_Bidang->get_where($id)->row_array();
             $this->load->view('templates/header');
-            $this->load->view('templates/sidebar');
+            $this->load->view('templates/sidebar', $data);
             $this->load->view('bidang/edit', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('templates/footer', $data);
         } else {
             $data = [
                 'nama_bidang' => $this->input->post('nama_bidang')

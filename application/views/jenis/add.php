@@ -2,12 +2,10 @@
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-
             <div class="card">
                 <div class="card-header">
                     <strong>Tambah</strong> Data Bidang
                 </div>
-
                 <div class="card-body card-block">
                     <form action="<?= base_url('jenis/add')  ?>" method="post" class="form-horizontal">
                         <div class="row form-group">
@@ -20,7 +18,6 @@
                                     <?php foreach ($bidang as $b) : ?>
                                         <option value="<?= $b['id_bidang'] ?>"><?= $b['nama_bidang'] ?></option>
                                     <?php endforeach; ?>
-
                                 </select>
                             </div>
                         </div>
@@ -39,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah
                     </button>
                     </form>
-                    <a href="<?= base_url('bidang') ?>" class="btn btn-danger btn-sm"> <i class="fa  fa-arrow-left"></i> Kembali</a>
+                    <a href="<?= base_url('jenis') ?>" class="btn btn-danger btn-sm"> <i class="fa  fa-arrow-left"></i> Kembali</a>
                 </div>
             </div>
             <?php

@@ -2,14 +2,12 @@
 <div class="main-content">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-
             <div class="card">
                 <div class="card-header">
                     <strong>Ubah</strong> Data Jenis Pelatihan
                 </div>
-
                 <div class="card-body card-block">
-                    <form action="<?= base_url('jenis/add')  ?>" method="post" class="form-horizontal">
+                    <form action="<?= base_url('jenis/edit/' . $val['id_jenis'])  ?>" method="post" class="form-horizontal">
                         <div class="row form-group">
                             <div class="col col-md-3">
                                 <label for="bidang" class="form-control-label">Nama Bidang</label>
@@ -17,13 +15,18 @@
                             <div class="col-12 col-md-9">
                                 <select name="bidang" id="" class="form-control select">
                                     <option value="" hidden selected disabled>Pilih Nama Bidang</option>
+
                                     <?php foreach ($bidang as $b) : ?>
-                                        <option value="<?= $b['id_bidang'] ?>"><?= $b['nama_bidang'] ?></option>
-                                        <?php if ($b['id_bidang'] == $val['id_bidang']) : ?>
-                                            <option value="<?= $b['id_bidang'] ?>" selected><?= $b['nama_bidang'] ?></option>
+                                        <?php if ($this->session->userdata('level') != 1) : ?>
+                                            <option value="<?= $b['id_bidang'] ?>" selected readonly><?= $b['nama_bidang'] ?></option>
+                                        <?php endif; ?>
+                                        <?php if ($this->session->userdata('level') == 1) : ?>
+                                            <option value="<?= $b['id_bidang'] ?>"><?= $b['nama_bidang'] ?></option>
+                                            <?php if ($b['id_bidang'] == $val['id_bidang']) : ?>
+                                                <option value="<?= $b['id_bidang'] ?>" selected><?= $b['nama_bidang'] ?></option>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
-
                                 </select>
                             </div>
                         </div>
@@ -32,7 +35,7 @@
                                 <label for="jenis_pelatihan" class="form-control-label">Jenis Pelatihan</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="text" id="jenis_pelatihan" name="jenis_pelatihan" placeholder="Masukkan Jenis Pelatihan" class="form-control">
+                                <input type="text" id="jenis_pelatihan" name="jenis_pelatihan" placeholder="Masukkan Jenis Pelatihan" class="form-control" value="<?= $val['pelatihan'] ?>">
                                 <?= form_error('jenis_pelatihan', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                         </div>
@@ -42,7 +45,7 @@
                         <i class="fa fa-edit"></i> Ubah
                     </button>
                     </form>
-                    <a href="<?= base_url('bidang') ?>" class="btn btn-danger btn-sm"> <i class="fa  fa-arrow-left"></i> Kembali</a>
+                    <a href="<?= base_url('jenis') ?>" class="btn btn-danger btn-sm"> <i class="fa  fa-arrow-left"></i> Kembali</a>
                 </div>
             </div>
             <?php
@@ -62,5 +65,4 @@
 <!-- END MAIN CONTENT-->
 <!-- END PAGE CONTAINER-->
 </div>
-
 </div>

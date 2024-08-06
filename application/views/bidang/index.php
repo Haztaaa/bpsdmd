@@ -106,7 +106,7 @@
                         '<tr>' +
                         '<td>' + (index + 1) + '</td>' +
                         '<td>' + item.pelatihan + '</td>' + // Ganti item.nama_pelatihan dengan nama atribut yang sesuai dalam objek data Anda
-                        '<td><a href="<?= base_url('sertifikat/detailPelatihan/') ?>' + item.id_jenis + '" class="btn btn-success">Lihat Data</a></td>',
+                        '<td><a href="<?= base_url('sertifikatmain/detailPelatihan/') ?>' + item.id_jenis + '" class="btn btn-success">Lihat Data</a></td>',
 
                         '</tr>'
                     );

@@ -2843,7 +2843,7 @@
 
                                 </div>
                             </section>
-
+                            array(7) { [0]=> object(stdClass)#24 (5) { ["nama_bidang"]=> string(10) "Manajerial" ["id_jenis"]=> string(1) "1" ["id_bidang"]=> string(1) "1" ["pelatihan"]=> string(11) "Latsar CPNS" ["total_peserta"]=> string(1) "7" } [1]=> object(stdClass)#25 (5) { ["nama_bidang"]=> string(10) "Manajerial" ["id_jenis"]=> string(1) "3" ["id_bidang"]=> string(1) "1" ["pelatihan"]=> string(3) "PKA" ["total_peserta"]=> string(1) "1" } [2]=> object(stdClass)#26 (5) { ["nama_bidang"]=> string(10) "Manajerial" ["id_jenis"]=> string(1) "4" ["id_bidang"]=> string(1) "1" ["pelatihan"]=> string(3) "PKN" ["total_peserta"]=> string(1) "1" } [3]=> object(stdClass)#27 (5) { ["nama_bidang"]=> string(10) "Manajerial" ["id_jenis"]=> string(1) "2" ["id_bidang"]=> string(1) "1" ["pelatihan"]=> string(3) "PKP" ["total_peserta"]=> string(1) "1" } [4]=> object(stdClass)#28 (5) { ["nama_bidang"]=> string(4) "PKTI" ["id_jenis"]=> string(1) "5" ["id_bidang"]=> string(1) "2" ["pelatihan"]=> string(22) "Pelatihan PBJP Level 1" ["total_peserta"]=> string(2) "67" } [5]=> object(stdClass)#29 (5) { ["nama_bidang"]=> string(4) "PKTI" ["id_jenis"]=> string(1) "6" ["id_bidang"]=> string(1) "2" ["pelatihan"]=> string(20) "Pelatihan PKK Tipe C" ["total_peserta"]=> string(1) "1" } [6]=> object(stdClass)#30 (5) { ["nama_bidang"]=> string(5) "PKTUF" ["id_jenis"]=> string(1) "7" ["id_bidang"]=> string(1) "3" ["pelatihan"]=> string(35) "Pelatihan Manajemen Kepalah Sekolah" ["total_peserta"]=> string(1) "1" } }
                             <section id="medical">
                                 <h2 class="title-2 fontawesome-list__title">Medical Icons</h2>
 
